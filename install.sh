@@ -119,6 +119,7 @@ sleep 20
 
 echo "Downloading FMS. This could take a few minutes. Please be patient."
 ./download_FMS.sh
-
+echo "Exctracting FMS."
+mv /tmp/fms-linux-x86-bin-0.3.85.tar.gz .
 mkdir FMS-install
 tar -xzvf fms-linux-x86-bin-0.3.85.tar.gz -C FMS-install
