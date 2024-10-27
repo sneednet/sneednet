@@ -46,14 +46,14 @@ ReturnType=direct
 EndMessage
 HERE
 
-echo "Waiting for data."
+echo "Sending AllData request."
 wait_for "AllData" <&3
 echo "Getting data length."
 len=$(get_data_length <&3)
 echo "len: $len"
-echo "Waiting for data."
+echo "Waiting for Data message indicating start of data."
 wait_for "Data" <&3
-echo "Running dd."
+echo "Running dd, beginning to copy data."
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
 { while true; do pkill -x -USR1 dd; sleep 1; done; } &
 dd bs=1 count=$len of="fms-linux-x86-bin-0.3.85.tar.gz" <&3
