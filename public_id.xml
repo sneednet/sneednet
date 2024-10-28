@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IdentityExport>
+	<Identity>
+		<Name><![CDATA[PublicID]]></Name>
+		<PublicKey>SSK@9Hl9WtSMnswWQdR-bAnczTD3KXMvf2I0lN~IXabLzu0,y6SHIKoTx34H9Sj-p2VGw0cjs0r~CzFJFWGmPpaGMsQ,AQACAAE/</PublicKey>
+		<PrivateKey>SSK@AJrfm5zydjH1IYB0PZJlfVO4smhRLwm-n50WMNjZKz5s,y6SHIKoTx34H9Sj-p2VGw0cjs0r~CzFJFWGmPpaGMsQ,AQECAAE/</PrivateKey>
+		<SingleUse>false</SingleUse>
+		<PublishTrustList>false</PublishTrustList>
+		<PublishBoardList>false</PublishBoardList>
+		<PublishFreesite>false</PublishFreesite>
+		<Hidden>false</Hidden>
+	</Identity>
+</IdentityExport>
