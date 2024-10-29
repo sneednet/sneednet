@@ -106,7 +106,7 @@ sleep 20
 
 echo "Extract the initialization wizard form password."
 wget -O wizard_form.html http://127.0.0.1:8888/wiz/
-form_password=$(grep -oP 'name="formPassword"\s*type="hidden"\s*value="\K[^"]+' wizard_form.html)
+form_password=$(grep -oP 'name="formPassword"\s*type="hidden"\s*value="\K[^"]+' wizard_form.html | head -1)
 rm wizard_form.html
 
 echo "form_password: $form_password"
@@ -122,12 +122,12 @@ sleep 20
 #echo "sleep 60"
 #sleep 60
 
-curl 'http://127.0.0.1:8888/CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz' > download_form.html && form_password=$(grep -oP 'name="formPassword"\s*type="hidden"\s*value="\K[^"]+' download_form.html) && echo "form_password: $form_password" && curl -X POST 'http://127.0.0.1:8888/downloads/' -H 'Content-Type: multipart/form-data' -F "formPassword=$form_password" -F "key=CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz" -F "return-type=direct" -F "persistence=forever" -F "download=Fetch" -F "filterData=filterData"
+curl 'http://127.0.0.1:8888/CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz' > download_form.html && form_password=$(grep -oP 'name="formPassword"\s*type="hidden"\s*value="\K[^"]+' download_form.html | head -1) && echo "form_password: $form_password" && curl -X POST 'http://127.0.0.1:8888/downloads/' -H 'Content-Type: multipart/form-data' -F "formPassword=$form_password" -F "key=CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz" -F "return-type=direct" -F "persistence=forever" -F "download=Fetch" -F "filterData=filterData"
 
 echo "Waiting 20s for FMS download request to be registered." 
 sleep 20
 
-curl http://127.0.0.1:8888/downloads/ > download_form.html && form_password=$(grep -oP 'name="formPassword"\s*type="hidden"\s*value="\K[^"]+' download_form.html) && echo "form_password: $form_password" && curl -X POST http://127.0.0.1:8888/downloads/ -H 'Content-Type: multipart/form-data' -F "formPassword=$form_password" -F 'restart_request=Restart' -F 'disableFilterData=disableFilterData' -F 'identifier-0= FProxy:fms-linux-x86-bin-0.3.85.tar.gz' -F 'key-0=freenet:CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz' -F 'filename-0=fms-linux-x86-bin-0.3.85.tar.gz'
+curl http://127.0.0.1:8888/downloads/ > download_form.html && form_password=$(grep -oP 'name="formPassword"\s*type="hidden"\s*value="\K[^"]+' download_form.html | head -1) && echo "form_password: $form_password" && curl -X POST http://127.0.0.1:8888/downloads/ -H 'Content-Type: multipart/form-data' -F "formPassword=$form_password" -F 'restart_request=Restart' -F 'disableFilterData=disableFilterData' -F 'identifier-0= FProxy:fms-linux-x86-bin-0.3.85.tar.gz' -F 'key-0=freenet:CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz' -F 'filename-0=fms-linux-x86-bin-0.3.85.tar.gz'
 
 echo "Waiting 15s for web interface FMS download to start."
 sleep 15
