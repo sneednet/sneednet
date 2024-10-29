@@ -118,11 +118,11 @@ wget -O - --post-data="formPassword=$form_password&monthlyLimit=999999999&downLi
 echo "Waiting 20s for settings to be applied."
 sleep 20
 
-#read -p "Press the Enter key to continue."
-#echo "sleep 60"
-#sleep 60
+read -p "Press the Enter key to continue."
+echo "sleep 60"
+sleep 60
 
-curl 'http://127.0.0.1:8888/CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz' > download_form.html && form_password=$(grep -oP 'name="formPassword"\s*type="hidden"\s*value="\K[^"]+' download_form.html | head -1) && echo "form_password: $form_password" && curl -X POST 'http://127.0.0.1:8888/downloads/' -H 'Content-Type: multipart/form-data' -F "formPassword=$form_password" -F "key=CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz" -F "return-type=direct" -F "persistence=forever" -F "download=Fetch" -F "filterData=filterData"
+curl --user-agent 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0' 'http://127.0.0.1:8888/CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz' > download_form.html && form_password=$(grep -oP 'name="formPassword"\s*type="hidden"\s*value="\K[^"]+' download_form.html | head -1) && echo "form_password: $form_password" && curl --user-agent 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0' -X POST 'http://127.0.0.1:8888/downloads/' -H 'Content-Type: multipart/form-data' -F "formPassword=$form_password" -F "key=CHK@NvT50rE2pz9bne9O-OE~GFY8z-JKul8NoxUDHWv7Evc,yQNgly4kq6WX4pT8A821R4fuOnZUroxi~8vtM1JAehg,AAMC--8/fms-linux-x86-bin-0.3.85.tar.gz" -F "return-type=direct" -F "persistence=forever" -F "download=Fetch" -F "filterData=filterData"
 
 echo "Waiting 20s for FMS download request to be registered." 
 sleep 20
