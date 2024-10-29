@@ -124,3 +124,6 @@ echo "Exctracting FMS."
 mv /tmp/fms-linux-x86-bin-0.3.85.tar.gz .
 
 ./install_fms.sh
+
+read -p "Press the Enter key to continue."
+
