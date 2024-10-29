@@ -19,7 +19,7 @@ wget -nc http://archive.ubuntu.com/ubuntu/pool/main/i/ilmbase/libilmbase12_2.2.0
 wget -nc http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libgomp1_8-20180414-1ubuntu2_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/ubuntu/pool/main/l/lcms2/liblcms2-2_2.9-1_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/pool/main/j/jbigkit/libjbig0_2.0-2ubuntu4.1_i386.deb
-for file in ./*; do unar "$file"; done;
+for file in ./*; do ar -x "$file"; done;
 for folder in ./*; do tar -xxvf "$folder"/data.tar.xz; done;
 cd ..
 mkdir FMS-install/deps
