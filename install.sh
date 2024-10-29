@@ -90,6 +90,7 @@ freenet_size="20540807"
 check_and_redownload_file $freenet_filename $freenet_size $freenet_known_hash $freenet_url
 
 echo "Installing Freenet."
+export PATH="$PATH:$(realpath "$jdk_folder/bin")"
 freenet_folder="Freenet-install"
 if [ -d "$freenet_folder" ]; then
     echo "A previous Freenet installation folder has been detected, skipping installation (folder $freenet_folder)."
