@@ -21,3 +21,7 @@
    and FMS through:
 
    http://127.0.0.1:8080
+
+6. Wait a few minutes for FMS to start downloading messages from the Freenet network and refresh the page to see them.
+
+7. That's it!
