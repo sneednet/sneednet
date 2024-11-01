@@ -8,7 +8,7 @@
    
    sudo apt-get update
    
-   sudo apt-get install libc6:i386 wget curl binutils
+   sudo apt-get install libc6:i386 libstdc++6:i386 zlib1g:i386 lzma:i386 wget curl binutils
 
 3. Download the github code as a .zip and extract it.
 
