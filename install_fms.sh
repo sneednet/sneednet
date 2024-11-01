@@ -3,7 +3,8 @@
 mkdir FMS-install
 tar -xzvf fms-linux-x86-bin-0.3.85.tar.gz -C FMS-install
 mkdir fms_dependencies
-# Download FMS dependencies
+
+echo "Download FMS dependencies."
 cd fms_dependencies
 wget -nc http://archive.ubuntu.com/ubuntu/pool/universe/f/freeimage/libfreeimage3_3.17.0+ds1-5build2_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/pool/universe/j/jxrlib/libjxr0_1.1-6build1_i386.deb
@@ -19,9 +20,12 @@ wget -nc http://archive.ubuntu.com/ubuntu/pool/main/i/ilmbase/libilmbase12_2.2.0
 wget -nc http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libgomp1_8-20180414-1ubuntu2_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/ubuntu/pool/main/l/lcms2/liblcms2-2_2.9-1_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/pool/main/j/jbigkit/libjbig0_2.0-2ubuntu4.1_i386.deb
-for file in ./*; do ar -x "$file"; done;
-for folder in ./*; do tar -xxvf "$folder"/data.tar.xz; done;
+
+echo "Unpacking .deb files."
+for file in ./*; do ar -x "$file"; tar -xxvf data.tar.xz; done;
 cd ..
+
+echo "Copying FMS dependencies."
 mkdir FMS-install/deps
 cp fms_dependencies/usr/lib/i386-linux-gnu/libfreeimage-3.17.0.so FMS-install/deps/libfreeimage.so.3
 cp fms_dependencies/usr/lib/i386-linux-gnu/libjxrglue.so.1.1 FMS-install/deps/libjxrglue.so.0
@@ -46,13 +50,12 @@ sleep 2
 echo "Configuring FMS."
 sleep 2
 
-read -p "Press the Enter key to continue."
+echo "Starting run-fms.sh script."
 
 echo "LD_PRELOAD=./deps/libfreeimage.so.3:./deps/libjxrglue.so.0:./deps/libjpeg.so.8:./deps/libopenjp2.so.7:./deps/libpng16.so.16:./deps/libraw.so.16:./deps/libtiff.so.5:./deps/libwebpmux.so.3:./deps/libwebp.so.6:./deps/libIlmImf-2_2.so.22:./deps/libHalf.so.12:./deps/libIex-2_2.so.12:./deps/libjpegxr.so.0:./deps/libjpeg.so.62:./deps/liblcms2.so.2:./deps/libgomp.so.1:./deps/libIlmThread-2_2.so.12:./deps/libjbig.so.0 ./fms" > FMS-install/run-fms.sh
 chmod +x FMS-install/run-fms.sh
-
 cd FMS-install 
-
+echo "Listing files in FMS-install."
 ls
 ./run-fms.sh &
 cd ..
