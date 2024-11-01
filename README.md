@@ -12,7 +12,7 @@
 
 3. Download the github code as a .zip and extract it.
 
-4. Run it and wait.
+4. Run the script install.sh and wait.
 
 5. Access Freenet through:
   
