@@ -1,6 +1,6 @@
 # Installation instructions
 
-1. Install dependencies. We need wget to download files, curl for POST requests and the ar command from the binutils package to unpack .deb files. And we need to install libc for the x86 architecture.
+1. Install dependencies. We need wget to download files, curl for POST requests and the ar command from the binutils package to unpack .deb files. And we need to install libc and a few other libraries for the x86 architecture.
 
    For this, in Ubuntu 22.04, run:
 
