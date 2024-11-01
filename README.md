@@ -5,7 +5,9 @@
    For this, in Ubuntu 22.04, run:
 
    sudo dpkg --add-architecture i386
+   
    sudo apt-get update
+   
    sudo apt-get install libc6:i386 wget curl binutils
 
 3. Download the github code as a .zip and extract it.
