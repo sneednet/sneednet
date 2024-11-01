@@ -52,7 +52,7 @@ sleep 2
 
 echo "Starting run-fms.sh script."
 
-echo "LD_PRELOAD=./deps/libfreeimage.so.3:./deps/libjxrglue.so.0:./deps/libjpeg.so.8:./deps/libopenjp2.so.7:./deps/libpng16.so.16:./deps/libraw.so.16:./deps/libtiff.so.5:./deps/libwebpmux.so.3:./deps/libwebp.so.6:./deps/libIlmImf-2_2.so.22:./deps/libHalf.so.12:./deps/libIex-2_2.so.12:./deps/libjpegxr.so.0:./deps/libjpeg.so.62:./deps/liblcms2.so.2:./deps/libgomp.so.1:./deps/libIlmThread-2_2.so.12:./deps/libjbig.so.0 ./fms &" > FMS-install/run-fms.sh
+echo "LD_PRELOAD=./deps/libfreeimage.so.3:./deps/libjxrglue.so.0:./deps/libjpeg.so.8:./deps/libopenjp2.so.7:./deps/libpng16.so.16:./deps/libraw.so.16:./deps/libtiff.so.5:./deps/libwebpmux.so.3:./deps/libwebp.so.6:./deps/libIlmImf-2_2.so.22:./deps/libHalf.so.12:./deps/libIex-2_2.so.12:./deps/libjpegxr.so.0:./deps/libjpeg.so.62:./deps/liblcms2.so.2:./deps/libgomp.so.1:./deps/libIlmThread-2_2.so.12:./deps/libjbig.so.0 ./fms --daemon" > FMS-install/run-fms.sh
 chmod +x FMS-install/run-fms.sh
 cd FMS-install 
 echo "Listing files in FMS-install."
