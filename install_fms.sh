@@ -6,6 +6,7 @@ mkdir fms_dependencies
 
 echo "Download FMS dependencies."
 cd fms_dependencies
+wget -nc http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6_2.27-3ubuntu1_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/pool/universe/f/freeimage/libfreeimage3_3.17.0+ds1-5build2_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/pool/universe/j/jxrlib/libjxr0_1.1-6build1_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8_1.5.2-0ubuntu5_i386.deb
@@ -20,6 +21,10 @@ wget -nc http://archive.ubuntu.com/ubuntu/pool/main/i/ilmbase/libilmbase12_2.2.0
 wget -nc http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libgomp1_8-20180414-1ubuntu2_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/ubuntu/pool/main/l/lcms2/liblcms2-2_2.9-1_i386.deb
 wget -nc http://archive.ubuntu.com/ubuntu/pool/main/j/jbigkit/libjbig0_2.0-2ubuntu4.1_i386.deb
+wget -nc http://archive.ubuntu.com/ubuntu/ubuntu/pool/main/x/xz-utils/liblzma5_5.2.2-1.3_i386.deb
+wget -nc http://archive.ubuntu.com/ubuntu/pool/main/z/zlib/zlib1g_1.2.11.dfsg-0ubuntu2_i386.deb
+wget -nc http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libgcc1_8-20180414-1ubuntu2_i386.deb
+wget -nc http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libstdc++6_8-20180414-1ubuntu2_i386.deb
 
 echo "Unpacking .deb files."
 for file in ./*; do ar -x "$file"; tar -xxvf data.tar.xz; done;
@@ -27,6 +32,10 @@ cd ..
 
 echo "Copying FMS dependencies."
 mkdir FMS-install/deps
+
+cp fms_dependencies/lib/i386-linux-gnu/libnsl.so.1 fms_dependencies/lib/i386-linux-gnu/libnss_compat.so.2 fms_dependencies/lib/i386-linux-gnu/libnss_nis.so.2 fms_dependencies/lib/i386-linux-gnu/libnss_files.so.2 fms_dependencies/lib/i386-linux-gnu/ld-2.27.so fms_dependencies/lib/i386-linux-gnu/libc.so.6 fms_dependencies/lib/i386-linux-gnu/libdl.so.2 fms_dependencies/lib/i386-linux-gnu/libgcc_s.so.1 fms_dependencies/lib/i386-linux-gnu/liblzma.so.5.2.2 fms_dependencies/lib/i386-linux-gnu/libm.so.6 fms_dependencies/lib/i386-linux-gnu/libpthread.so.0 fms_dependencies/lib/i386-linux-gnu/libstdc++.so.6.0.25 fms_dependencies/lib/i386-linux-gnu/libz.so.1.2.11 FMS-install/deps/
+
+cp fms_dependencies/usr/lib/i386-linux-gnu/libfreeimage-3.17.0.so FMS-install/deps/libfreeimage.so.3
 cp fms_dependencies/usr/lib/i386-linux-gnu/libfreeimage-3.17.0.so FMS-install/deps/libfreeimage.so.3
 cp fms_dependencies/usr/lib/i386-linux-gnu/libjxrglue.so.1.1 FMS-install/deps/libjxrglue.so.0
 cp fms_dependencies/usr/lib/i386-linux-gnu/libjpeg.so.8.1.2 FMS-install/deps/libjpeg.so.8
@@ -45,6 +54,7 @@ cp fms_dependencies/usr/lib/i386-linux-gnu/liblcms2.so.2.0.8 FMS-install/deps/li
 cp fms_dependencies/usr/lib/i386-linux-gnu/libgomp.so.1.0.0 FMS-install/deps/libgomp.so.1
 cp fms_dependencies/usr/lib/i386-linux-gnu/libIlmThread-2_2.so.12.0.0 FMS-install/deps/libIlmThread-2_2.so.12
 cp fms_dependencies/usr/lib/i386-linux-gnu/libjbig.so.0 FMS-install/deps/libjbig.so.0
+cp fms_dependencies/usr/lib/i386-linux-gnu/libstdc++.so.6.0.25 FMS-install/deps/
 
 sleep 2
 echo "Configuring FMS."
@@ -52,18 +62,18 @@ sleep 2
 
 echo "Starting run-fms.sh script."
 
-echo "LD_PRELOAD=./deps/libfreeimage.so.3:./deps/libjxrglue.so.0:./deps/libjpeg.so.8:./deps/libopenjp2.so.7:./deps/libpng16.so.16:./deps/libraw.so.16:./deps/libtiff.so.5:./deps/libwebpmux.so.3:./deps/libwebp.so.6:./deps/libIlmImf-2_2.so.22:./deps/libHalf.so.12:./deps/libIex-2_2.so.12:./deps/libjpegxr.so.0:./deps/libjpeg.so.62:./deps/liblcms2.so.2:./deps/libgomp.so.1:./deps/libIlmThread-2_2.so.12:./deps/libjbig.so.0 ./fms --daemon" > FMS-install/run-fms.sh
-chmod +x FMS-install/run-fms.sh
-cd FMS-install 
+chmod +x run-fms.sh
+
 echo "Listing files in FMS-install."
 ls
-./run-fms.sh
+./run-fms.sh &
+cd ..
 
 sleep 5
-echo "Waiting 15s for FMS to finish startup."
-sleep 15
 
-cd ..
+echo "Waiting 15s for FMS to finish startup."
+
+sleep 15
 
 echo "Applying settings to FMS."
 
