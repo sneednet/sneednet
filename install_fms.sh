@@ -33,7 +33,7 @@ cd ..
 echo "Copying FMS dependencies."
 mkdir FMS-install/deps
 
-cp fms_dependencies/lib/i386-linux-gnu/libnsl.so.1 fms_dependencies/lib/i386-linux-gnu/libnss_compat.so.2 fms_dependencies/lib/i386-linux-gnu/libnss_nis.so.2 fms_dependencies/lib/i386-linux-gnu/libnss_files.so.2 fms_dependencies/lib/i386-linux-gnu/ld-2.27.so fms_dependencies/lib/i386-linux-gnu/libc.so.6 fms_dependencies/lib/i386-linux-gnu/libdl.so.2 fms_dependencies/lib/i386-linux-gnu/libgcc_s.so.1 fms_dependencies/lib/i386-linux-gnu/liblzma.so.5.2.2 fms_dependencies/lib/i386-linux-gnu/libm.so.6 fms_dependencies/lib/i386-linux-gnu/libpthread.so.0 fms_dependencies/lib/i386-linux-gnu/libstdc++.so.6.0.25 fms_dependencies/lib/i386-linux-gnu/libz.so.1.2.11 FMS-install/deps/
+cp fms_dependencies/lib/i386-linux-gnu/libnsl.so.1 fms_dependencies/lib/i386-linux-gnu/libnss_compat.so.2 fms_dependencies/lib/i386-linux-gnu/libnss_nis.so.2 fms_dependencies/lib/i386-linux-gnu/libnss_files.so.2 fms_dependencies/lib/i386-linux-gnu/ld-2.27.so fms_dependencies/lib/i386-linux-gnu/libc.so.6 fms_dependencies/lib/i386-linux-gnu/libdl.so.2 fms_dependencies/lib/i386-linux-gnu/libgcc_s.so.1 fms_dependencies/lib/i386-linux-gnu/liblzma.so.5.2.2 fms_dependencies/lib/i386-linux-gnu/libm.so.6 fms_dependencies/lib/i386-linux-gnu/libpthread.so.0 fms_dependencies/lib/i386-linux-gnu/libz.so.1.2.11 FMS-install/deps/
 
 cp fms_dependencies/usr/lib/i386-linux-gnu/libfreeimage-3.17.0.so FMS-install/deps/libfreeimage.so.3
 cp fms_dependencies/usr/lib/i386-linux-gnu/libfreeimage-3.17.0.so FMS-install/deps/libfreeimage.so.3
