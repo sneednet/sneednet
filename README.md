@@ -1,20 +1,12 @@
-# Installation instructions
+# Installation instructions (Linux)
 
-1. Install dependencies. We need wget to download files, curl for POST requests and the ar command from the binutils package to unpack .deb files. And we need to install libc and a few other libraries for the x86 architecture.
+Tested in Ubuntu 22.04 x64:
 
-   For this, in Ubuntu 22.04, run:
+1. Download the github code as a .zip and extract it.
 
-   sudo dpkg --add-architecture i386
-   
-   sudo apt-get update
-   
-   sudo apt-get install libc6:i386 libstdc++6:i386 zlib1g:i386 lzma:i386 wget curl binutils
+2. Run the script install.sh and wait.
 
-3. Download the github code as a .zip and extract it.
-
-4. Run the script install.sh and wait.
-
-5. Access Freenet through:
+3. Access Freenet through:
   
    http://127.0.0.1:8888
 
@@ -22,6 +14,8 @@
 
    http://127.0.0.1:8080
 
-6. Wait a few minutes for FMS to start downloading messages from the Freenet network and refresh the page to see them.
+4. Wait a few minutes for FMS to start downloading messages from the Freenet network and refresh the page to see them.
 
-7. That's it!
+5. That's it!
+
+Other system configurations are not supported yet, but this might work on other x64 Linux systems.

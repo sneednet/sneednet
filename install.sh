@@ -65,7 +65,8 @@ check_and_redownload_file() {
 
 echo "Downloading curl."
 wget -O .path/curl "https://github.com/moparisthebest/static-curl/releases/download/v7.67.0/curl-amd64"
-PATH="$PATH:./path"
+PATH="$PATH:$(realpath ./.path)"
+chmod +x .path/curl
 curl --version
 
 echo "Downloading JDK."
