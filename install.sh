@@ -63,6 +63,11 @@ check_and_redownload_file() {
     fi
 }
 
+echo "Downloading curl."
+wget -O .path/curl "https://github.com/moparisthebest/static-curl/releases/download/v7.67.0/curl-amd64"
+PATH="$PATH:./path"
+curl --version
+
 echo "Downloading JDK."
 jdk_version="21.0.5_11"
 jdk_filename="OpenJDK21U-jdk_x64_linux_hotspot_$jdk_version.tar.gz"
